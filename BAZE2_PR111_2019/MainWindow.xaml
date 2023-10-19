@@ -1,0 +1,257 @@
+﻿<Window x:Class="BAZE2_PR111_2019.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BAZE2_PR111_2019"
+        mc:Ignorable="d"
+        Title="SKIJASKA STAZA" HorizontalAlignment="Center" Height="450" Width="650" Loaded="Window_Loaded" Closing="Window_Closing">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="sudija3ViewSource"/>
+        <CollectionViewSource x:Key="licenca1ViewSource"/>
+        <CollectionViewSource x:Key="zaTakmicare1ViewSource"/>
+        <CollectionViewSource x:Key="zaStazu1ViewSource"/>
+        <CollectionViewSource x:Key="proizvodjacOpreme1ViewSource"/>
+        <CollectionViewSource x:Key="oprema1ViewSource"/>
+        <CollectionViewSource x:Key="drzava1ViewSource"/>
+        <CollectionViewSource x:Key="skijas1ViewSource"/>
+        <CollectionViewSource x:Key="trka1ViewSource"/>
+        <CollectionViewSource x:Key="staza1ViewSource"/>
+        <CollectionViewSource x:Key="ucestvuje1ViewSource"/>
+
+
+    </Window.Resources>
+
+    <Grid>
+
+        <TabControl Width="770" Height="375" VerticalAlignment="Top" Background="LawnGreen">
+            <TabItem Header="Sudije">
+                <DataGrid x:Name="Sudija3DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource sudija3ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSud2}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding ImeSud2}" 
+                                            Header="Ime Sudije"/>
+                        <DataGridTextColumn Binding="{Binding PrzSud2}" 
+                                            Header="Prezime Sudije"/>
+                        <DataGridTextColumn Binding="{Binding TipSud2}" 
+                                            Header="Tip Sudije"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="Licence">
+                <DataGrid x:Name="Licenca1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource licenca1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdLic1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding DatIzdv1}" 
+                                            Header="Datum Izdavanja"/>
+                        <DataGridTextColumn Binding="{Binding DatIstk1}" 
+                                            Header="Datum Isteka"/>
+                        <DataGridTextColumn Binding="{Binding NazLic1}" 
+                                            Header="Naziv Licence"/>
+                        <DataGridTextColumn Binding="{Binding IdSud2}" 
+                                            Header="Id Sudije"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="ZaTakmicare">
+                <DataGrid x:Name="ZaTakmicare1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource zaTakmicare1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSud2}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridComboBoxColumn Header="Ime"
+                                                ItemsSource="{Binding Source={StaticResource sudija3ViewSource}}"
+                                                DisplayMemberPath="ImeSud2"
+                                                SelectedValueBinding="{Binding IdSud2}"
+                                                SelectedValuePath="IdSud2"/>
+                        <DataGridComboBoxColumn Header="Prezime"
+                                                ItemsSource="{Binding Source={StaticResource sudija3ViewSource}}"
+                                                DisplayMemberPath="PrzSud2"
+                                                SelectedValueBinding="{Binding IdSud2}"
+                                                SelectedValuePath="IdSud2"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="ZaStaze">
+                <DataGrid x:Name="ZaStazu1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource zaStazu1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSud2}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridComboBoxColumn Header="Ime"
+                                                ItemsSource="{Binding Source={StaticResource sudija3ViewSource}}"
+                                                DisplayMemberPath="ImeSud2"
+                                                SelectedValueBinding="{Binding IdSud2}"
+                                                SelectedValuePath="IdSud2"/>
+                        <DataGridComboBoxColumn Header="Prezime"
+                                                ItemsSource="{Binding Source={StaticResource sudija3ViewSource}}"
+                                                DisplayMemberPath="PrzSud2"
+                                                SelectedValueBinding="{Binding IdSud2}"
+                                                SelectedValuePath="IdSud2"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="ProizvodjaciOprema">
+                <DataGrid x:Name="ProizvodjacOpreme1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource proizvodjacOpreme1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdProiz1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding NazProiz1}" 
+                                            Header="NazivProizvodjaca"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="Drzave">
+                <DataGrid x:Name="Drzava1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource drzava1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdDrz1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding NazDrz1}" 
+                                            Header="Naziv Drzave"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="Skijasi">
+                <DataGrid x:Name="Skijas1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource skijas1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSk1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding ImeSk1}" 
+                                            Header="Ime Skijasa"/>
+                        <DataGridTextColumn Binding="{Binding PrzSk1}" 
+                                            Header="Prezime Skijasa"/>
+                        <DataGridTextColumn Binding="{Binding RezSk1}" 
+                                            Header="Rezultat Skijasa"/>
+                        <DataGridTextColumn Binding="{Binding BrSkiPas1}" 
+                                            Header="Broj Ski-pasa Skijasa"/>
+                        <DataGridTextColumn Binding="{Binding IdDrz1}" 
+                                            Header="Id Drzave"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="Trke">
+                <DataGrid x:Name="Trka1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource trka1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdTrk1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding NazTrke1}" 
+                                            Header="Naziv Trke"/>
+                        <DataGridTextColumn Binding="{Binding VrTrk1}" 
+                                            Header="Vrijeme Trke"/>
+                        <DataGridTextColumn Binding="{Binding DatTrk1}" 
+                                            Header="Datum Trke"/>
+                        <DataGridTextColumn Binding="{Binding KatTrk1}" 
+                                            Header="Kategorija Trke"/>
+                        <DataGridTextColumn Binding="{Binding IdDrz1}" 
+                                            Header="Id Drzave"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Ucestvuje">
+                <DataGrid x:Name="Ucestvuje1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource ucestvuje1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSk1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding IdTrk1}" 
+                                            Header="Id Trke"/>
+                        <DataGridTextColumn Binding="{Binding IdSud2}" 
+                                            Header="Id Sudije"/>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </TabItem>
+
+            <TabItem Header="Opreme">
+                <DataGrid x:Name="Oprema1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource oprema1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdOp1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding VelOp1}" 
+                                            Header="Velicina Opreme"/>
+                        <DataGridTextColumn Binding="{Binding VrstOp1}" 
+                                            Header="Vrsta Opreme"/>
+                        <DataGridTextColumn Binding="{Binding IdProiz1}" 
+                                            Header="Id Proizvodjaca Opreme"/>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Staze">
+                <DataGrid x:Name="Staza1DataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding Source={StaticResource staza1ViewSource}}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding IdSt1}" 
+                                            Header="Id"
+                                            IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding NazSt1}" 
+                                            Header="Naziv Staze"/>
+                        <DataGridTextColumn Binding="{Binding DuzinaSt1}" 
+                                            Header="Duzina Staze"/>
+                        <DataGridTextColumn Binding="{Binding IdTrk1}" 
+                                            Header="Id Trke"/>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Sacuvaj promjene" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                Height="30" Width="100" Margin="10,10,10,10" Click="Button_Click" Background="Beige"/>
+
+    </Grid>
+</Window>
